@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var editButton: UIBarButtonItem!
-    var universities = ["University of Texas at Austin", "University of Illinois", "University of Washington, Seattle"]
+    var universities = ["University of Texas at Austin", "University of Illinois at Urbana-Champaign", "University of Washington, Seattle"]
     override func viewDidLoad() {
         super.viewDidLoad()
         editButton.tag = 0
