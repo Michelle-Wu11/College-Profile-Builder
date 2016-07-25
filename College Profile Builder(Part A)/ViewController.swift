@@ -13,10 +13,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var editButton: UIBarButtonItem!
-    var universities = ["University of Texas at Austin", "University of Illinois at Urbana-Champaign", "University of Washington, Seattle"]
+    //var universities = ["University of Texas at Austin", "University of Illinois at Urbana-Champaign", "University of Washington, Seattle"]
+    var universities : [University] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         editButton.tag = 0
+        universities.append(University(name: "University of Texas at Austin", location: "University Station, Austin, TX 78712-111", enrollment: 51000, image: UIImage(named: "University of Texas at Austin")!))
+        universities.append(University(name: "University of Illinois at Urbana-Champaign", location: "Urbana-Champaign, Illinois", enrollment: 430000, image: UIImage(named: "University of Illinois at Urbana-Champaign")!))
+        universities.append(University(name: "University of Washington, Seattle", location: "1410 NE Campus Parkway Box 355852，Seattle WA ", enrollment: 420000, image: UIImage(named: "University of Washington, Seattle")!))
+
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -26,7 +31,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         let cell = tableView.dequeueReusableCellWithIdentifier("MyCell", forIndexPath: indexPath)
-        cell.textLabel?.text = universities[indexPath.row]
+        cell.textLabel?.text = universities[indexPath.row].name
         return cell
     }
     
@@ -48,7 +53,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let addAction = UIAlertAction(title: "Add", style: .Default)
         { (action) in
             let universityTextField = alert.textFields![0] as UITextField
-            self.universities.append(universityTextField.text!)
+            self.universities.append(University(name: universityTextField.text!))
             self.tableView.reloadData()
         }
         
