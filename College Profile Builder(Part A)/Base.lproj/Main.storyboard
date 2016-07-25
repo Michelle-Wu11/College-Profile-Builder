@@ -54,7 +54,14 @@
                             <constraint firstItem="HyT-zR-0tk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="jid-CM-HRW"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="hYb-rZ-akw"/>
+                    <navigationItem key="navigationItem" id="hYb-rZ-akw">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="3id-dr-oO0"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="k70-sE-gwE">
+                            <connections>
+                                <action selector="onTappedPlusButton:" destination="BYZ-38-t0r" id="eX6-JO-Lnx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="HyT-zR-0tk" id="PyH-1c-nyh"/>
                     </connections>

@@ -35,5 +35,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
 
+    @IBAction func onTappedPlusButton(sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Add University", message: nil, preferredStyle: .Alert)
+        alert.addTextFieldWithConfigurationHandler { (textField) in
+            textField.placeholder = "Add University Here"
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
+        alert.addAction(cancelAction)
+        
+        let addAction = UIAlertAction(title: "Add", style: .Default)
+        { (action) in
+            let universityTextField = alert.textFields![0] as UITextField
+            self.universities.append(universityTextField.text!)
+            self.tableView.reloadData()
+        }
+        
+        alert.addAction(addAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
 }
 
