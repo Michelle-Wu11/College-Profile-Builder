@@ -18,9 +18,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         editButton.tag = 0
-        universities.append(University(name: "University of Texas at Austin", location: "University Station, Austin, TX 78712-111", enrollment: 51000, image: UIImage(named: "University of Texas at Austin")!))
-        universities.append(University(name: "University of Illinois at Urbana-Champaign", location: "Urbana-Champaign, Illinois", enrollment: 430000, image: UIImage(named: "University of Illinois at Urbana-Champaign")!))
-        universities.append(University(name: "University of Washington, Seattle", location: "1410 NE Campus Parkway Box 355852，Seattle WA ", enrollment: 420000, image: UIImage(named: "University of Washington, Seattle")!))
+        universities.append(University(name: "University of Texas at Austin", location: "University Station, Austin, TX 78712-111", enrollment: 51000, image: UIImage(named: "University of Texas at Austin")!, website: "http://www.utexas.edu"))
+        universities.append(University(name: "University of Illinois at Urbana-Champaign", location: "Urbana-Champaign, Illinois", enrollment: 430000, image: UIImage(named: "University of Illinois at Urbana-Champaign")!, website: "http://illinois.edu"))
+        universities.append(University(name: "University of Washington, Seattle", location: "1410 NE Campus Parkway Box 355852，Seattle WA ", enrollment: 420000, image: UIImage(named: "University of Washington, Seattle")!, website: "http://www.washington.edu"))
     }
     
     override func viewWillAppear(animated: Bool) {
