@@ -11,17 +11,16 @@ import UIKit
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var tableView: UITableView!
-    
     @IBOutlet weak var editButton: UIBarButtonItem!
     //var universities = ["University of Texas at Austin", "University of Illinois at Urbana-Champaign", "University of Washington, Seattle"]
     var universities : [University] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         editButton.tag = 0
         universities.append(University(name: "University of Texas at Austin", location: "University Station, Austin, TX 78712-111", enrollment: 51000, image: UIImage(named: "University of Texas at Austin")!))
         universities.append(University(name: "University of Illinois at Urbana-Champaign", location: "Urbana-Champaign, Illinois", enrollment: 430000, image: UIImage(named: "University of Illinois at Urbana-Champaign")!))
         universities.append(University(name: "University of Washington, Seattle", location: "1410 NE Campus Parkway Box 355852，Seattle WA ", enrollment: 420000, image: UIImage(named: "University of Washington, Seattle")!))
-
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -29,8 +28,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         tableView.reloadData()
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return universities.count
     }
     
@@ -54,14 +52,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
         alert.addAction(cancelAction)
-        
-        let addAction = UIAlertAction(title: "Add", style: .Default)
-        { (action) in
+        let addAction = UIAlertAction(title: "Add", style: .Default) { (action) in
             let universityTextField = alert.textFields![0] as UITextField
             self.universities.append(University(name: universityTextField.text!))
             self.tableView.reloadData()
         }
-        
         alert.addAction(addAction)
         self.presentViewController(alert, animated: true, completion: nil)
     }
@@ -80,7 +75,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if sender.tag == 0 {
             tableView.editing = true
             sender.tag = 1
-        }else{
+        } else {
             tableView.editing = false
             sender.tag = 0
         }
