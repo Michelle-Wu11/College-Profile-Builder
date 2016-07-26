@@ -17,9 +17,9 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        university.name = nameTextField.text!
-        university.location = locationTextField.text!
-        university.enrollment = Int(enrollmentTextField.text!)!
+        nameTextField.text = university.name
+        locationTextField.text = university.location
+        enrollmentTextField.text = String(university.enrollment)
         if (university.image == nil) {
             imageView.image = UIImage(named: "default")
         } else {
@@ -30,6 +30,8 @@ class DetailViewController: UIViewController {
     }
 
     @IBAction func onTappedSaveButton(sender: AnyObject) {
-        
+        university.name = nameTextField.text!
+        university.location = locationTextField.text!
+        university.enrollment = Int(enrollmentTextField.text!)!
     }
 }

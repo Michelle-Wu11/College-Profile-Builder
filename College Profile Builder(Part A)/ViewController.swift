@@ -24,6 +24,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return universities.count
