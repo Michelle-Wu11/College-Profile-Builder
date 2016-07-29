@@ -31,7 +31,7 @@ class MapViewController: UIViewController,UITextFieldDelegate {
         textField.resignFirstResponder()
         findLocation(locationName)
         return true
-
+        
     }
     
     func findLocation(locationName: String) {
@@ -54,10 +54,10 @@ class MapViewController: UIViewController,UITextFieldDelegate {
                     actionController.addAction(cancelAction)
                     self.presentViewController(actionController, animated: true, completion: nil)
                 } else {
-                let placemark = placemarks!.first as CLPlacemark!
-                let center = placemark.location!.coordinate
-                let span = MKCoordinateSpanMake(0.1, 0.1)
-                self.displayMap(center, span: span, pinTitle: self.textField.text!)
+                    let placemark = placemarks!.first as CLPlacemark!
+                    let center = placemark.location!.coordinate
+                    let span = MKCoordinateSpanMake(0.1, 0.1)
+                    self.displayMap(center, span: span, pinTitle: self.textField.text!)
                 }
             }
         }
