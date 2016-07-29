@@ -33,7 +33,7 @@
                                                     <rect key="frame" x="15" y="0.0" width="570" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -131,18 +131,25 @@
                                     <action selector="onTappedLibraryButton:" destination="n0m-La-mLE" eventType="touchUpInside" id="JGY-6B-Lkd"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYW-LU-cbn">
-                                <rect key="frame" x="344" y="345" width="57" height="30"/>
-                                <state key="normal" title="Camera"/>
-                                <connections>
-                                    <action selector="onTappedCameraButton:" destination="n0m-La-mLE" eventType="touchUpInside" id="GIx-tn-f6v"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="az8-Mj-NGf">
-                                <rect key="frame" x="355" y="226" width="46" height="30"/>
+                                <rect key="frame" x="349" y="226" width="46" height="30"/>
                                 <state key="normal" title="Go"/>
                                 <connections>
                                     <action selector="openInSafariWithDoneButton:" destination="n0m-La-mLE" eventType="touchUpInside" id="1iU-Ec-FU9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Onv-Wi-qLi">
+                                <rect key="frame" x="348" y="131" width="46" height="30"/>
+                                <state key="normal" title="Map"/>
+                                <connections>
+                                    <segue destination="e28-26-EfV" kind="show" id="dZv-tV-s7E"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qYW-LU-cbn">
+                                <rect key="frame" x="344" y="353" width="57" height="30"/>
+                                <state key="normal" title="Camera"/>
+                                <connections>
+                                    <action selector="onTappedCameraButton:" destination="n0m-La-mLE" eventType="touchUpInside" id="GIx-tn-f6v"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -168,6 +175,49 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LAi-Im-cAB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1813" y="400"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="RNd-Zf-olF">
+            <objects>
+                <viewController id="e28-26-EfV" customClass="MapViewController" customModule="College_Profile_Builder_Part_A_" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XP5-EP-hKb"/>
+                        <viewControllerLayoutGuide type="bottom" id="BBZ-d4-Sav"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hNj-sj-1gc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="V9a-oJ-wrH">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                            </mapView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="WGe-2M-MaC">
+                                <rect key="frame" x="107" y="133" width="200" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="e28-26-EfV" id="Bcz-Yd-h7N"/>
+                                </connections>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="V9a-oJ-wrH" firstAttribute="top" secondItem="XP5-EP-hKb" secondAttribute="bottom" id="FOA-ul-Fed"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="V9a-oJ-wrH" secondAttribute="trailing" constant="-20" id="TtF-ix-2XL"/>
+                            <constraint firstItem="BBZ-d4-Sav" firstAttribute="top" secondItem="V9a-oJ-wrH" secondAttribute="bottom" id="duf-pl-CfF"/>
+                            <constraint firstItem="WGe-2M-MaC" firstAttribute="centerX" secondItem="hNj-sj-1gc" secondAttribute="centerX" id="oeU-31-VvH"/>
+                            <constraint firstItem="V9a-oJ-wrH" firstAttribute="leading" secondItem="hNj-sj-1gc" secondAttribute="leadingMargin" constant="-20" id="zda-Gb-NiW"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="mapView" destination="V9a-oJ-wrH" id="4ge-ll-IKH"/>
+                        <outlet property="textField" destination="WGe-2M-MaC" id="7QT-eh-FUD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yNV-Cg-mfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2354" y="400"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bjh-1p-Aan">

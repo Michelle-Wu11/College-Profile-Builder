@@ -50,8 +50,6 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         }
     }
     
-    
-    
     @IBAction func onTappedSaveButton(sender: AnyObject) {
         
         university.name = nameTextField.text!
@@ -60,7 +58,6 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
         university.website = websiteTextField.text!
         university.image = imageView.image
     }
-    
     
     @IBAction func onTappedLibraryButton(sender: UIButton) {
         
@@ -76,6 +73,8 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
             presentViewController(imagePicker, animated: true, completion: nil)
         }
     }
-    
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let dvc = segue.destinationViewController as! MapViewController
+        dvc.location = university.name
+    }
 }
